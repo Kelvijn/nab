@@ -5,19 +5,39 @@
 		<div class="col-sm-1">
 		</div>
 		<div class="col-sm-8 well menu-item posts">
-			<h2> News </h2>
-			@if(count($posts)>0) @foreach($posts as $post)
-			<div class=" well post">
-				<h3>
-					<a href="/posts/{{$post->id}}">{{$post->title}}</a>
-				</h3>
-				<p>{!!$post->body!!}</p>
-				<small>Written on {{$post->created_at}} by {{$post->user()->name}}</small> 
-			</div>
-			@endforeach {{$posts->links()}} @else
-			<p>No posts found.</p>
-			@endif
-
+			<h2> Tablets </h2>
+			<table class="table  table-sm">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Museum no</th>
+                        <th>Collection no</th>
+                        <th>Date created</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($tablets as $tablet)
+                    <tr>
+                        <th>{{$tablet->id}}</th>
+                        <td>{{$tablet->museum_no}}</td>
+						<td>{{$tablet->collection_no}}</td>	
+						
+                        <td>{{$tablet->created_at->toFormattedDateString()}}</td>
+                        <td>
+                            <a class="btn btn-default btn-xs" href="">VIEW</a>
+        
+                           
+                            
+        
+                        </td>
+                    </tr>
+                    @endforeach
+        
+                </tbody>
+            </table>
+            {{$tablets->links()}}
+        
 		</div>
 
 		<div class="col-sm-3 sidenav  ">

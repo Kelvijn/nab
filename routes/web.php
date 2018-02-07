@@ -12,3 +12,7 @@
 */
 
 Route::get('/', 'PagesController@index');
+Route::get('/tablets', 'PagesController@tablets');
+Route::get('/tablets/show', 'PagesController@showTablets');
+
+

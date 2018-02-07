@@ -39,25 +39,14 @@ N<span class="smallcaps">a</span>B<span class="smallcaps">u</span>CC<span class=
 
  <ul class="nav navbar-nav line active-topnav">
 
-             <li>
-				<a href="/">HOME</a>
-			</li>
-			<li>
-				<a href="/catalogue">CATALOGUE</a>
-			</li>
+    <li>
+        <a href="{{ url('/tablets') }}">TABLETS</a>
+    </li>
+		
 			
-			<li>
-				<a href="/archives">ARCHIVES</a>
-			</li>
-            <li>
-				<a href="/bibliography">BIBLIOGRAPHY</a>
-			</li>
-            <li>
-				<a href="/glossary">GLOSSARY</a>
-			</li>
-            <li>
-				<a href="/posts">POSTS</a>
-			</li>
+		
+           
+         
             </ul>
                     <!-- Right Side Of Navbar -->
                      
