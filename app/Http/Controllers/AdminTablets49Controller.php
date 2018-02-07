@@ -59,7 +59,6 @@
 			$this->form[] = ['label'=>'Gregorian','name'=>'gregorian','type'=>'datetime','value'=>'2018-02-07 00:00:00','validation'=>'date_format:Y-m-d H:i:s','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Gregorian Date Remark','name'=>'gregorian_date_remark','type'=>'text','validation'=>'min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Cdli No','name'=>'cdli_no','type'=>'text','validation'=>'min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Tablet Types Id','name'=>'tablet_types_id','type'=>'select2','validation'=>'integer|min:0','width'=>'col-sm-10','datatable'=>'tablet_types,name'];
 			$this->form[] = ['label'=>'Width','name'=>'width','type'=>'money','value'=>'0','validation'=>'integer|min:0','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Height','name'=>'height','type'=>'money','value'=>'0','validation'=>'integer|min:0','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Thickness','name'=>'thickness','type'=>'money','value'=>'0','validation'=>'integer|min:0','width'=>'col-sm-10'];
@@ -69,6 +68,56 @@
 			$this->form[] = ['label'=>'Text Types Id','name'=>'text_types_id','type'=>'select2','validation'=>'integer|min:0','width'=>'col-sm-10','datatable'=>'text_types,name'];
 			$this->form[] = ['label'=>'Content Remark','name'=>'content_remark','type'=>'text','validation'=>'min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Paraphrases Id','name'=>'paraphrases_id','type'=>'select2','validation'=>'integer|min:0','width'=>'col-sm-10','datatable'=>'paraphrases,id'];
+			
+			$columns = [];
+			$columns[] = ['label'=>'Tablet','name'=>'tablets_id','type'=>'datamodal','datamodal_table'=>'tablets','datamodal_columns'=>'id,museum_no'];
+			$columns[] = ['label'=>'Type','name'=>'tablet_types_id','type'=>'datamodal','datamodal_table'=>'tablet_types','datamodal_columns'=>'id,name,category'];
+			
+			$this->form[] = ['label'=>'Join tablets','name'=>'joins','type'=>'child','columns'=>$columns,'table'=>'joins','foreign_key'=>'tablets_id'];
+			
+			$columns1 = [];
+			$columns1[] = ['label'=>'Archive','name'=>'archives_id','type'=>'datamodal','datamodal_table'=>'archives','datamodal_columns'=>'region,specific_region'];
+			
+			$this->form[] = ['label'=>'Archives','name'=>'tablets_archives','type'=>'child','columns'=>$columns1,'table'=>'tablets_archives','foreign_key'=>'tablets_id'];
+			
+			$columns2= [];
+			$columns2[] = ['label'=>'Place of issue','name'=>'places_id','type'=>'datamodal','datamodal_table'=>'places','datamodal_columns'=>'region,city'];
+			
+			$this->form[] = ['label'=>'Places','name'=>'tablets_places','type'=>'child','columns'=>$columns2,'table'=>'tablets_places','foreign_key'=>'tablets_id'];
+			
+			$columns3= [];
+			$columns3[] = ['label'=>'Provenience','name'=>'proveniences_id','type'=>'datamodal','datamodal_table'=>'proveniences','datamodal_columns'=>'region,city'];
+			$this->form[] = ['label'=>'Proveniences','name'=>'tablets_proveniences','type'=>'child','columns'=>$columns3,'table'=>'tablets_proveniences','foreign_key'=>'tablets_id'];
+			
+			$columns4= [];
+			$columns4[] = ['label'=>'Author tablet','name'=>'cms_users_id','type'=>'datamodal','datamodal_table'=>'cms_users','datamodal_columns'=>'name'];
+			$this->form[] = ['label'=>'Authors tablet','name'=>'tablets_cms_users','type'=>'child','columns'=>$columns4,'table'=>'tablets_cms_users','foreign_key'=>'tablets_id'];
+			
+			$columns5= [];
+			$columns5[] = ['label'=>'Other marking','name'=>'other_markings_id','type'=>'datamodal','datamodal_table'=>'other_markings','datamodal_columns'=>'name'];
+			$this->form[] = ['label'=>'Other markings','name'=>'tablets_other_markings','type'=>'child','columns'=>$columns5,'table'=>'tablets_other_markings','foreign_key'=>'tablets_id'];
+			
+			$columns6= [];
+			$columns6[] = ['label'=>'Philological note','name'=>'philological_notes_id','type'=>'datamodal','datamodal_table'=>'philological_notes','datamodal_columns'=>'name'];
+			$this->form[] = ['label'=>'Philological notes','name'=>'tablets_philological_notes','type'=>'child','columns'=>$columns6,'table'=>'tablets_philological_notes','foreign_key'=>'tablets_id'];
+			
+			$columns7= [];
+			$columns7[] = ['label'=>'Text type','name'=>'text_types_id','type'=>'datamodal','datamodal_table'=>'text_types','datamodal_columns'=>'name, category'];
+			$this->form[] = ['label'=>'Text types','name'=>'tablets_text_types','type'=>'child','columns'=>$columns7,'table'=>'tablets_text_types','foreign_key'=>'tablets_id'];
+			
+			$columns8= [];
+			$columns8[] = ['label'=>'Akkadian keyword','name'=>'akkadian_keywords_id','type'=>'datamodal','datamodal_table'=>'akkadian_keywords','datamodal_columns'=>'name'];
+			$this->form[] = ['label'=>'Akkadian keywords','name'=>'tablets_akkadian_keywords','type'=>'child','columns'=>$columns8,'table'=>'tablets_akkadian_keywords','foreign_key'=>'tablets_id'];
+			
+			$columns9= [];
+			$columns9[] = ['label'=>'General keyword','name'=>'general_keywords_id','type'=>'datamodal','datamodal_table'=>'general_keywords','datamodal_columns'=>'name'];
+			$this->form[] = ['label'=>'General keywords','name'=>'tablets_general_keywords','type'=>'child','columns'=>$columns9,'table'=>'tablets_general_keywords','foreign_key'=>'tablets_id'];
+			
+			$columns10= [];
+			$columns10[] = ['label'=>'Transliteration','name'=>'transliterations_id','type'=>'datamodal','datamodal_table'=>'transliterations','datamodal_columns'=>'body'];
+			$this->form[] = ['label'=>'Transliterations','name'=>'tablets_transliterations','type'=>'child','columns'=>$columns10,'table'=>'tablets_transliterations','foreign_key'=>'tablets_id'];
+			
+			
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
@@ -79,28 +128,34 @@
 			//$this->form[] = ['label'=>'Page No Publication','name'=>'page_no_publication','type'=>'text','validation'=>'min:1|max:255','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Publications Id','name'=>'publications_id','type'=>'select2','validation'=>'integer|min:0','width'=>'col-sm-10','datatable'=>'publications,id'];
 			//$this->form[] = ['label'=>'Periods Id','name'=>'periods_id','type'=>'select2','validation'=>'integer|min:0','width'=>'col-sm-10','datatable'=>'periods,name'];
-			//$this->form[] = ['label'=>'Kings Id','name'=>'kings_id','type'=>'select2','validation'=>'integer|min:0','width'=>'col-sm-10','datatable'=>'kings,id'];
+			//$this->form[] = ['label'=>'Kings Id','name'=>'kings_id','type'=>'select2','validation'=>'integer|min:0','width'=>'col-sm-10','datatable'=>'kings,long'];
 			//$this->form[] = ['label'=>'King Remarks Id','name'=>'king_remarks_id','type'=>'select2','validation'=>'integer|min:0','width'=>'col-sm-10','datatable'=>'king_remarks,name'];
-			//$this->form[] = ['label'=>'Year','name'=>'year','type'=>'number','validation'=>'integer|min:0','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Year','name'=>'year','type'=>'number','value'=>'0','validation'=>'integer|min:0','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Year Remarks Id','name'=>'year_remarks_id','type'=>'select2','validation'=>'integer|min:0','width'=>'col-sm-10','datatable'=>'year_remarks,name'];
-			//$this->form[] = ['label'=>'Months Id','name'=>'months_id','type'=>'select2','validation'=>'integer|min:0','width'=>'col-sm-10','datatable'=>'months,id'];
+			//$this->form[] = ['label'=>'Months Id','name'=>'months_id','type'=>'select2','validation'=>'integer|min:0','width'=>'col-sm-10','datatable'=>'months,roman'];
 			//$this->form[] = ['label'=>'Month Remarks Id','name'=>'month_remarks_id','type'=>'select2','validation'=>'integer|min:0','width'=>'col-sm-10','datatable'=>'month_remarks,name'];
-			//$this->form[] = ['label'=>'Day','name'=>'day','type'=>'number','validation'=>'integer|min:0','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Day','name'=>'day','type'=>'number','value'=>'0','validation'=>'integer|min:0','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Day Remarks Id','name'=>'day_remarks_id','type'=>'select2','validation'=>'integer|min:0','width'=>'col-sm-10','datatable'=>'day_remarks,name'];
 			//$this->form[] = ['label'=>'Babylonian Date Remark','name'=>'babylonian_date_remark','type'=>'text','validation'=>'min:1|max:255','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Gregorian','name'=>'gregorian','type'=>'datetime','validation'=>'date_format:Y-m-d H:i:s','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Gregorian','name'=>'gregorian','type'=>'datetime','value'=>'2018-02-07 00:00:00','validation'=>'date_format:Y-m-d H:i:s','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Gregorian Date Remark','name'=>'gregorian_date_remark','type'=>'text','validation'=>'min:1|max:255','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Cdli No','name'=>'cdli_no','type'=>'text','validation'=>'min:1|max:255','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Tablet Types Id','name'=>'tablet_types_id','type'=>'select2','validation'=>'integer|min:0','width'=>'col-sm-10','datatable'=>'tablet_types,name'];
-			//$this->form[] = ['label'=>'Width','name'=>'width','type'=>'money','validation'=>'integer|min:0','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Height','name'=>'height','type'=>'money','validation'=>'integer|min:0','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Thickness','name'=>'thickness','type'=>'money','validation'=>'integer|min:0','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Width','name'=>'width','type'=>'money','value'=>'0','validation'=>'integer|min:0','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Height','name'=>'height','type'=>'money','value'=>'0','validation'=>'integer|min:0','width'=>'col-sm-10'];
+			//$this->form[] = ['label'=>'Thickness','name'=>'thickness','type'=>'money','value'=>'0','validation'=>'integer|min:0','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Dimensions Remark','name'=>'dimensions_remark','type'=>'text','validation'=>'min:1|max:255','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Orientations Id','name'=>'orientations_id','type'=>'select2','validation'=>'integer|min:0','width'=>'col-sm-10','datatable'=>'orientations,name'];
 			//$this->form[] = ['label'=>'Philological Remark','name'=>'philological_remark','type'=>'text','validation'=>'min:1|max:255','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Text Types Id','name'=>'text_types_id','type'=>'select2','validation'=>'integer|min:0','width'=>'col-sm-10','datatable'=>'text_types,name'];
 			//$this->form[] = ['label'=>'Content Remark','name'=>'content_remark','type'=>'text','validation'=>'min:1|max:255','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Paraphrases Id','name'=>'paraphrases_id','type'=>'select2','validation'=>'integer|min:0','width'=>'col-sm-10','datatable'=>'paraphrases,id'];
+			//
+			//
+			//$columns = [];
+			//$columns[] = ['label'=>'Tablet','name'=>'tablets_id','type'=>'datamodal','datamodal_table'=>'tablets','datamodal_columns'=>'id,museum_no'];
+			//$columns[] = ['label'=>'Type','name'=>'tablet_types_id','type'=>'datamodal','datamodal_table'=>'tablet_types','datamodal_columns'=>'id,name,category'];
+			//
+			//$this->form[] = ['label'=>'Join tablets','name'=>'joins','type'=>'child','columns'=>$columns,'table'=>'joins','foreign_key'=>'tablets_id'];
 			# OLD END FORM
 
 			/* 

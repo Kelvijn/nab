@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePublicationsTable extends Migration
+class CreateProvenience extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreatePublicationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('publications', function (Blueprint $table) {
+        Schema::create('proveniences', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('region');            
+            $table->string('city');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreatePublicationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('publications');
+        Schema::dropIfExists('proveniences');
     }
 }

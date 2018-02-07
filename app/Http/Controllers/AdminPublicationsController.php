@@ -5,12 +5,12 @@
 	use DB;
 	use CRUDBooster;
 
-	class AdminTabletsController extends \crocodicstudio\crudbooster\controllers\CBController {
+	class AdminPublicationsController extends \crocodicstudio\crudbooster\controllers\CBController {
 
 	    public function cbInit() {
 
 			# START CONFIGURATION DO NOT REMOVE THIS LINE
-			$this->title_field = "content_remark";
+			$this->title_field = "id";
 			$this->limit = "5000";
 			$this->orderby = "id,desc";
 			$this->global_privilege = false;
@@ -25,103 +25,22 @@
 			$this->button_filter = true;
 			$this->button_import = false;
 			$this->button_export = false;
-			$this->table = "tablets";
+			$this->table = "publications";
 			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Museum No","name"=>"museum_no"];
-			$this->col[] = ["label"=>"Collection No","name"=>"collection_no"];
-			$this->col[] = ["label"=>"Text No Publication","name"=>"text_no_publication"];
-			$this->col[] = ["label"=>"Page No Publication","name"=>"page_no_publication"];
-			$this->col[] = ["label"=>"Publications Id","name"=>"publications_id","join"=>"publications,id"];
-			$this->col[] = ["label"=>"Periods Id","name"=>"periods_id","join"=>"periods,id"];
-			$this->col[] = ["label"=>"Kings Id","name"=>"kings_id","join"=>"kings,long"];
-			$this->col[] = ["label"=>"King Remarks_id","name"=>"king_remarks_id","join"=>"king_remarks,name"];
-			$this->col[] = ["label"=>"Year","name"=>"year"];
-			$this->col[] = ["label"=>"Year Remarks_id","name"=>"year_remarks_id","join"=>"year_remarks,id"];
-			$this->col[] = ["label"=>"Months Id","name"=>"months_id","join"=>"months,roman"];
-			$this->col[] = ["label"=>"Month Remarks_id","name"=>"month_remarks_id","join"=>"month_remarks,id"];
-			$this->col[] = ["label"=>"Day","name"=>"day"];
-			$this->col[] = ["label"=>"Day Remarks_id","name"=>"day_remarks_id","join"=>"remarks,id"];
-			$this->col[] = ["label"=>"Babylonian Date_remark","name"=>"babylonian_date_remark"];
-			$this->col[] = ["label"=>"Gregorian","name"=>"gregorian"];
-			$this->col[] = ["label"=>"Gregorian Date_remark","name"=>"gregorian_date_remark"];
-			$this->col[] = ["label"=>"Cdli No","name"=>"cdli_no"];
-			$this->col[] = ["label"=>"Tablet Types_id","name"=>"tablet_types_id","join"=>"tablet_types,id"];
-			$this->col[] = ["label"=>"Width","name"=>"width"];
-			$this->col[] = ["label"=>"Height","name"=>"height"];
-			$this->col[] = ["label"=>"Thickness","name"=>"thickness"];
-			$this->col[] = ["label"=>"Dimensions Remark","name"=>"dimensions_remark"];
-			$this->col[] = ["label"=>"Orientations Id","name"=>"orientations_id","join"=>"orientations,id"];
-			$this->col[] = ["label"=>"Philological Remark","name"=>"philological_remark"];
-			$this->col[] = ["label"=>"Text Types_id","name"=>"text_types_id","join"=>"text_types,id"];
-			$this->col[] = ["label"=>"Content Remark","name"=>"content_remark"];
-			$this->col[] = ["label"=>"Paraphrases Id","name"=>"paraphrases_id","join"=>"paraphrases,id"];
+			$this->col[] = ["label"=>"Body","name"=>"body"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Museum No','name'=>'museum_no','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Collection No','name'=>'collection_no','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Text No Publication','name'=>'text_no_publication','type'=>'text','validation'=>'max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Page No Publication','name'=>'page_no_publication','type'=>'text','validation'=>'max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Publications Id','name'=>'publications_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'publications,id'];
-			$this->form[] = ['label'=>'Periods Id','name'=>'periods_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'periods,name'];
-			$this->form[] = ['label'=>'Kings Id','name'=>'kings_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'kings,id'];
-			$this->form[] = ['label'=>'King Remarks Id','name'=>'king_remarks_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'king_remarks,id'];
-			$this->form[] = ['label'=>'Year','name'=>'year','type'=>'number','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Year Remarks Id','name'=>'year_remarks_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'year_remarks,id'];
-			$this->form[] = ['label'=>'Months Id','name'=>'months_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'months,id'];
-			$this->form[] = ['label'=>'Month Remarks Id','name'=>'month_remarks_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'month_remarks,id'];
-			$this->form[] = ['label'=>'Day','name'=>'day','type'=>'number','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Day Remarks Id','name'=>'day_remarks_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'day_remarks,id'];
-			$this->form[] = ['label'=>'Babylonian Date Remark','name'=>'babylonian_date_remark','type'=>'text','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Gregorian','name'=>'gregorian','type'=>'datetime','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Gregorian Date Remark','name'=>'gregorian_date_remark','type'=>'text','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Cdli No','name'=>'cdli_no','type'=>'text','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Tablet Types Id','name'=>'tablet_types_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'tablet_types,name'];
-			$this->form[] = ['label'=>'Width','name'=>'width','type'=>'money','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Height','name'=>'height','type'=>'money','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Thickness','name'=>'thickness','type'=>'money','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Dimensions Remark','name'=>'dimensions_remark','type'=>'text','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Orientations Id','name'=>'orientations_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'orientations,name'];
-			$this->form[] = ['label'=>'Philological Remark','name'=>'philological_remark','type'=>'text','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Text Types Id','name'=>'text_types_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'text_types,name'];
-			$this->form[] = ['label'=>'Content Remark','name'=>'content_remark','type'=>'text','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Paraphrases Id','name'=>'paraphrases_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'paraphrases,id'];
+			$this->form[] = ['label'=>'Body','name'=>'body','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Museum No','name'=>'museum_no','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Collection No','name'=>'collection_no','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Text No Publication','name'=>'text_no_publication','type'=>'text','validation'=>'max:255','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Page No Publication','name'=>'page_no_publication','type'=>'text','validation'=>'max:255','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Publications Id','name'=>'publications_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'publications,id'];
-			//$this->form[] = ['label'=>'Periods Id','name'=>'periods_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'periods,name'];
-			//$this->form[] = ['label'=>'Kings Id','name'=>'kings_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'kings,id'];
-			//$this->form[] = ['label'=>'King Remarks Id','name'=>'king_remarks_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'king_remarks,id'];
-			//$this->form[] = ['label'=>'Year','name'=>'year','type'=>'number','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Year Remarks Id','name'=>'year_remarks_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'year_remarks,id'];
-			//$this->form[] = ['label'=>'Months Id','name'=>'months_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'months,id'];
-			//$this->form[] = ['label'=>'Month Remarks Id','name'=>'month_remarks_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'month_remarks,id'];
-			//$this->form[] = ['label'=>'Day','name'=>'day','type'=>'number','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Day Remarks Id','name'=>'day_remarks_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'day_remarks,id'];
-			//$this->form[] = ['label'=>'Babylonian Date Remark','name'=>'babylonian_date_remark','type'=>'text','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Gregorian','name'=>'gregorian','type'=>'datetime','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Gregorian Date Remark','name'=>'gregorian_date_remark','type'=>'text','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Cdli No','name'=>'cdli_no','type'=>'text','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Tablet Types Id','name'=>'tablet_types_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'tablet_types,name'];
-			//$this->form[] = ['label'=>'Width','name'=>'width','type'=>'money','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Height','name'=>'height','type'=>'money','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Thickness','name'=>'thickness','type'=>'money','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Dimensions Remark','name'=>'dimensions_remark','type'=>'text','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Orientations Id','name'=>'orientations_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'orientations,name'];
-			//$this->form[] = ['label'=>'Philological Remark','name'=>'philological_remark','type'=>'text','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Text Types Id','name'=>'text_types_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'text_types,name'];
-			//$this->form[] = ['label'=>'Content Remark','name'=>'content_remark','type'=>'text','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Paraphrases Id','name'=>'paraphrases_id','type'=>'select2','width'=>'col-sm-10','datatable'=>'paraphrases,id'];
+			//$this->form[] = ["label"=>"Body","name"=>"body","type"=>"text","required"=>TRUE,"validation"=>"required|min:1|max:255"];
 			# OLD END FORM
 
 			/* 
