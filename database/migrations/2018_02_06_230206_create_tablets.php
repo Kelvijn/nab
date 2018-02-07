@@ -33,11 +33,11 @@ class CreateTablets extends Migration
             $table->foreign('king_remarks_id')->references('id')->on('remarks')->nullable();
 
 
-            $table->integer('year')->nullable();
+            $table->integer('year')->default(1);
             $table->integer('year_remarks_id')->nullable();
             $table->integer('months_id')->nullable();
             $table->integer('month_remarks_id')->nullable();
-            $table->integer('day')->nullable();
+            $table->integer('day')->nullable()->default(1);
             $table->integer('day_remarks_id')->nullable();
             $table->string('babylonian_date_remark')->nullable();
             $table->dateTime('gregorian')->nullable();
@@ -46,9 +46,9 @@ class CreateTablets extends Migration
 
             //physical
             $table->integer('tablet_types_id')->nullable();
-            $table->double('width')->nullable();
-            $table->double('height')->nullable();
-            $table->double('thickness')->nullable();
+            $table->double('width')->nullable()->default(1);
+            $table->double('height')->nullable()->default(1);
+            $table->double('thickness')->nullable()->default(1);
             $table->string('dimensions_remark')->nullable();
             $table->integer('orientations_id')->nullable();
 
