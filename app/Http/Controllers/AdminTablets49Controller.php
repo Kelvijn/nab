@@ -51,12 +51,18 @@
 			$this->form[] = ['label'=>'Page No Publication','name'=>'page_no_publication','type'=>'text','validation'=>'min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Publications Id','name'=>'publications_id','type'=>'select2','validation'=>'integer|min:0','width'=>'col-sm-10','datatable'=>'publications,body'];
 			$columns11= [];
-			$columns11[] = ['label'=>'Paraphrase','name'=>'paraphrases_id','type'=>'datamodal','datamodal_table'=>'paraphrases','datamodal_columns'=>'body,museum_no'];
+			$columns11[] = ['label'=>'Paraphrase','name'=>'paraphrases_id','type'=>'datamodal','datamodal_table'=>'paraphrases','datamodal_columns'=>'body,museum_no,released'];
 			$this->form[] = ['label'=>'Paraphrases','name'=>'tablets_paraphrases','type'=>'child','columns'=>$columns11,'table'=>'tablets_paraphrases','foreign_key'=>'tablets_id'];
+			
+			$columns12= [];
+			$columns12[] = ['label'=>'Museum no','name'=>'museum_noo','type'=>'number','required'=>true];
+			$columns12[] = ['label'=>'Type','name'=>'tablet_types_id','type'=>'datamodal','datamodal_table'=>'tablet_types','datamodal_columns'=>'name'];
+			
+			$this->form[] = ['label'=>'Joins','name'=>'tablets_tablets','type'=>'child','columns'=>$columns12,'table'=>'tablets_tablets','foreign_key'=>'tablets_id'];
 			
 			
 			$columns10= [];
-			$columns10[] = ['label'=>'Transliteration','name'=>'transliterations_id','type'=>'datamodal','datamodal_table'=>'transliterations','datamodal_columns'=>'body,museum_no'];
+			$columns10[] = ['label'=>'Transliteration','name'=>'transliterations_id','type'=>'datamodal','datamodal_table'=>'transliterations','datamodal_columns'=>'body,museum_no,released'];
 			$this->form[] = ['label'=>'Transliterations','name'=>'tablets_transliterations','type'=>'child','columns'=>$columns10,'table'=>'tablets_transliterations','foreign_key'=>'tablets_id'];
 			
 			$this->form[] = ['label'=>'Periods Id','name'=>'periods_id','type'=>'select2','validation'=>'integer|min:0','width'=>'col-sm-10','datatable'=>'periods,name'];

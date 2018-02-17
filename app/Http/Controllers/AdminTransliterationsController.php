@@ -40,6 +40,7 @@
 			$this->form[] = ['label'=>'Body','name'=>'body','type'=>'textarea','validation'=>'required|min:1','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Cms Users Id','name'=>'cms_users_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'cms_users,name'];
 			$this->form[] = ['label'=>'Museum_no','name'=>'museum_no','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'tablets,museum_no'];
+			$this->form[] = ['label'=>'Released','name'=>'released','type'=>'select','dataenum'=>'1;0'];
 			
 			# END FORM DO NOT REMOVE THIS LINE
 

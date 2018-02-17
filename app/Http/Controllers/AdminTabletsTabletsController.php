@@ -5,13 +5,13 @@
 	use DB;
 	use CRUDBooster;
 
-	class AdminParaphrases56Controller extends \crocodicstudio\crudbooster\controllers\CBController {
+	class AdminTabletsTabletsController extends \crocodicstudio\crudbooster\controllers\CBController {
 
 	    public function cbInit() {
 
 			# START CONFIGURATION DO NOT REMOVE THIS LINE
 			$this->title_field = "id";
-			$this->limit = "5000";
+			$this->limit = "1000";
 			$this->orderby = "id,desc";
 			$this->global_privilege = false;
 			$this->button_table_action = true;
@@ -25,32 +25,28 @@
 			$this->button_filter = true;
 			$this->button_import = false;
 			$this->button_export = false;
-			$this->table = "paraphrases";
+			$this->table = "tablets_tablets";
 			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Body","name"=>"body"];
-			
-			$this->col[] = ["label"=>"Users Id","name"=>"cms_users_id","join"=>"cms_users,name"];
-			$this->col[] = ["label"=>"Museum_no","name"=>"museum_no","join"=>"tablets,museum_no"];
-			$this->col[] = ["label"=>"Released","name"=>"released"];
-			
-			
+			$this->col[] = ["label"=>"Tablets Id","name"=>"tablets_id","join"=>"tablets,content_remark"];
+			$this->col[] = ["label"=>"Museum No","name"=>"museum_no","join"=>"tablets,museum_no"];
+			$this->col[] = ["label"=>"Tablet Types Id","name"=>"tablet_types_id","join"=>"tablet_types,name"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ['label'=>'Body','name'=>'body','type'=>'wysiwyg','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			$this->form[] = ['label'=>'Cms Users Id','name'=>'cms_users_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'cms_users,name'];
-			$this->form[] = ['label'=>'Museum_no','name'=>'museum_no','type'=>'select2','validation'=>'required','width'=>'col-sm-9','datatable'=>'tablets,museum_no'];
-			$this->form[] = ['label'=>'Released','name'=>'released','type'=>'select','dataenum'=>'1;0'];
+			$this->form[] = ['label'=>'Tablets Id','name'=>'tablets_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'tablets,content_remark'];
+			$this->form[] = ['label'=>'Museum No','name'=>'museum_no','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
+			$this->form[] = ['label'=>'Tablet Types Id','name'=>'tablet_types_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'tablet_types,name'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
 			//$this->form = [];
-			//$this->form[] = ['label'=>'Body','name'=>'body','type'=>'wysiwyg','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Cms Users Id','name'=>'cms_users_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'cms_users,name'];
+			//$this->form[] = ["label"=>"Tablets Id","name"=>"tablets_id","type"=>"select2","required"=>TRUE,"validation"=>"required|integer|min:0","datatable"=>"tablets,content_remark"];
+			//$this->form[] = ["label"=>"Museum No","name"=>"museum_no","type"=>"number","required"=>TRUE,"validation"=>"required|integer|min:0"];
+			//$this->form[] = ["label"=>"Tablet Types Id","name"=>"tablet_types_id","type"=>"select2","required"=>TRUE,"validation"=>"required|integer|min:0","datatable"=>"tablet_types,name"];
 			# OLD END FORM
 
 			/* 
