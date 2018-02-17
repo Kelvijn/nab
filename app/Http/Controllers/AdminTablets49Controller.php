@@ -30,7 +30,10 @@
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
+			$this->col[] = ["label"=>"Id","name"=>"id"];
+			
 			$this->col[] = ["label"=>"Museum No","name"=>"museum_no"];
+			
 			$this->col[] = ["label"=>"Collection No","name"=>"collection_no"];
 			$this->col[] = ["label"=>"Text No Publication","name"=>"text_no_publication"];
 			$this->col[] = ["label"=>"Page No Publication","name"=>"page_no_publication"];
@@ -41,13 +44,19 @@
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
+			
 			$this->form[] = ['label'=>'Museum No','name'=>'museum_no','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Collection No','name'=>'collection_no','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Text No Publication','name'=>'text_no_publication','type'=>'text','validation'=>'min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Page No Publication','name'=>'page_no_publication','type'=>'text','validation'=>'min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Publications Id','name'=>'publications_id','type'=>'select2','validation'=>'integer|min:0','width'=>'col-sm-10','datatable'=>'publications,body'];
+			$columns11= [];
+			$columns11[] = ['label'=>'Paraphrase','name'=>'paraphrases_id','type'=>'datamodal','datamodal_table'=>'paraphrases','datamodal_columns'=>'body,museum_no'];
+			$this->form[] = ['label'=>'Paraphrases','name'=>'tablets_paraphrases','type'=>'child','columns'=>$columns11,'table'=>'tablets_paraphrases','foreign_key'=>'tablets_id'];
+			
+			
 			$columns10= [];
-			$columns10[] = ['label'=>'Transliteration','name'=>'transliterations_id','type'=>'datamodal','datamodal_table'=>'transliterations','datamodal_columns'=>'body'];
+			$columns10[] = ['label'=>'Transliteration','name'=>'transliterations_id','type'=>'datamodal','datamodal_table'=>'transliterations','datamodal_columns'=>'body,museum_no'];
 			$this->form[] = ['label'=>'Transliterations','name'=>'tablets_transliterations','type'=>'child','columns'=>$columns10,'table'=>'tablets_transliterations','foreign_key'=>'tablets_id'];
 			
 			$this->form[] = ['label'=>'Periods Id','name'=>'periods_id','type'=>'select2','validation'=>'integer|min:0','width'=>'col-sm-10','datatable'=>'periods,name'];

@@ -17,6 +17,7 @@ class CreateTabletsParaphrases extends Migration
             $table->increments('id');
             $table->integer('tablets_id')->nullable();
             $table->integer('paraphrases_id')->nullable();
+            
             $table->timestamps();
         });
     }

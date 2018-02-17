@@ -16,8 +16,7 @@ class CreateTabletsTransliterations extends Migration
         Schema::create('tablets_transliterations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('tablets_id')->nullable();
-            
-                        $table->integer('transliterations_id')->nullable();
+            $table->integer('transliterations_id')->nullable();
             $table->timestamps();
         });
     }
