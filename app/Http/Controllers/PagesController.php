@@ -22,8 +22,23 @@ class PagesController extends Controller
     }
     public function tablets(){
 
-        $tablets = Tablet::orderBy('created_at','des')->paginate(5);
+        $tablets = Tablet::orderBy('created_at','des')->paginate(10);
          return view('front.home.tablet.tablets')->with('tablets',$tablets);
+    }
+
+    public function posts(){
+        $posts= Post::orderBy('created_at','des')->paginate(5);
+         return view('front.home.post.posts')->with('posts',$posts);
+     }
+
+    public function showPost($id){
+        $post = Post::find($id);
+        return view('front.home.post.show')->with('post',$post);
+    }
+    public function showTablet($id){
+       
+        $tablet = Tablet::where('museum_no',$id)->first();
+        return view('front.home.tablet.show')->with('tablet',$tablet);
     }
 
     public function about(){

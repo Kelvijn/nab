@@ -25,8 +25,7 @@
 						
                         <td>{{$tablet->created_at->toFormattedDateString()}}</td>
                         <td>
-                            <a class="btn btn-default btn-xs" href="">VIEW</a>
-        
+						<a class="btn btn-default btn-xs" href="tablets/{{$tablet->museum_no}}">VIEW</a>
                            
                             
         

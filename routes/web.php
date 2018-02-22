@@ -13,6 +13,8 @@
 
 Route::get('/', 'PagesController@index');
 Route::get('/tablets', 'PagesController@tablets');
-Route::get('/tablets/show', 'PagesController@showTablets');
+Route::get('/tablets/{id}', 'PagesController@showTablet');
+Route::get('/posts', 'PagesController@posts');
+Route::get('/posts/{id}', 'PagesController@showPost');
 
 

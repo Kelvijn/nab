@@ -26,7 +26,7 @@ N<span class="smallcaps">a</span>B<span class="smallcaps">u</span>CC<span class=
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'Nabucco') }}
                         
                     </a>
                 </div>
