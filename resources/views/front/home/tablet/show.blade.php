@@ -54,11 +54,19 @@
             <h3>created_at</h3>
             
                     {{$tablet->created_at}}
-           
-            
+          
+                   
+           @foreach($tablet->authors() as $author)
+
+           test
+           <tr>
+               <th>{{$author->id}}</th>
+              
+           </tr>
+           @endforeach
                     
                     
-                       
+           {{$tablet->test()}}  
 						
                             
         
