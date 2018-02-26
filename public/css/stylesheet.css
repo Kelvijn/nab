@@ -7284,7 +7284,8 @@ button.list-group-item-danger.active:focus {
 
 .well {
   min-height: 20px;
-  padding: 19px;
+  padding: 15px;
+  padding-bottom: 0px;
   margin-bottom: 20px;
   background-color: #f5f5f5;
   border: 1px solid #e3e3e3;
@@ -8392,7 +8393,7 @@ body a {
  
 
 header {
-    background: #fff url(../images/Handcopypart.jpg) no-repeat right bottom;
+    background: #fff url(https://lh3.googleusercontent.com/-Y02qDQyX5pA/WpQ95mC3HmI/AAAAAAAAMCY/d-A31nzsnBIi9ow4KRN94HjoBW1mUhoRgCJoC/w795-h204-n/spijkerd.jpg) no-repeat right bottom;
     overflow: hidden;
 }
 #top-nav .navigation {
@@ -8455,14 +8456,7 @@ header {
     background-color: #F5F5F5;
   }
  
-  .vertical-nav li a:focus {
-    color: #843418;
-    background-color: #F5F5F5;
-    
-    border-bottom: 0.5px dashed #843418;
-    border-radius: 0px;
-    
-  }
+  
 
  
   .active-topnav li a:hover {
@@ -8490,3 +8484,37 @@ html,body {
   height:101%;
 }
 
+.bg {
+  /* The image used */
+  
+
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+#wrapper {
+  background-image: url("http://files.webklik.nl/user_files/2013_10/514510/spijkerschrift1.jpg");
+  
+}
+
+footer {
+  background: #fff;
+  
+}
+
+.footer_img li {
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 35px;
+  
+}
+.footer_img li a img {
+  height: 50px;
+  
+}

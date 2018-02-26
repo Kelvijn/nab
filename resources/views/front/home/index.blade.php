@@ -1,14 +1,17 @@
 @extends('layouts.app') @section('content')
+		
 
 <div class="container-fluid" style="">
 	<div class="row content background-image-nabucco">
 		<div class="col-sm-1">
 		</div>
+		
 		<div class="col-sm-8 well menu-item posts">
-			<h2> News </h2>
+			   
+			<h2 class="media-heading"> News </h2>
 			@if(count($posts)>0) @foreach($posts as $post)
 			<div class=" well post">
-				<h3>
+				<h3 class="media-heading">
 					<a href="posts/{{$post->id}}">{{$post->title}}</a>
 				</h3>
 				<p>{!!$post->body!!}</p>
@@ -20,11 +23,13 @@
 
 		</div>
 
-		<div class="col-sm-3 sidenav  ">
-			<div class="col-sm-9 sidenav well menu-item">
-				<h4 class="">ABOUT</h4>
-                                <hr />
-				<ul class="nav nav-pills nav-stacked vertical-nav">
+		<div class="col-sm-3 sidenav   ">
+			<div class="col-sm-9  well menu-item  "  >
+				<h5 class="media-heading">ABOUT</h5>
+								<hr />
+								<div class="row">
+									
+				<ul class="nav nav-pills nav-stacked  ">
 					<li>
 						<a href="#section1">About the project</a>
 					</li>
@@ -49,22 +54,26 @@
 				</ul>
 				<br>
 			</div>
+		</div>
+		
 
 		</div>
                 <div class="col-sm-3 sidenav ">
 			<div class="col-sm-9 sidenav well menu-item">
-				<h4>RELATED PROJECTS</h4>
+							
+				<h5 class="media-heading">RELATED PROJECTS</h5>
                                 <hr />
-                                
+					<div class="row">
+							
 				<ul class="nav nav-pills nav-stacked">
 					<li>
-						<a href="#section1">Home</a>
+						<a href="#section1">The Priesthood of Uruk in Late First Millennium BCE Babylonia</a>
 					</li>
 					<li>
-						<a href="#section2">Friends</a>
+						<a href="#section2">Cuneiform Texts Mentioning Israelites, Judeans, and Related Population Groups</a>
 					</li>
 					<li>
-						<a href="#section3">Family</a>
+						<a href="#section3">Taxation and Administration in the Achaemenid Empire</a>
 					</li>
 					<li>
 						<a href="#section3">Photos</a>
@@ -72,6 +81,8 @@
 				</ul>
 				<br>
 			</div>
+		</div>
+		
 
 		</div>
 	</div>

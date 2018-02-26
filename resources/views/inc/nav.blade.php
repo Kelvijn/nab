@@ -5,17 +5,22 @@
     <a href="/">
     <img src="http://nabucco.arts.kuleuven.be/nabucco/themes/Nabucco/images/Logo_NaBuCCo.jpg">
     </a></div>
+<img style="float:left" src=""/>
+    
 <div id="header-wrapper">
 <div id="site-title">
 N<span class="smallcaps">a</span>B<span class="smallcaps">u</span>CC<span class="smallcaps">o</span>
 </div>
 
 </div>
+
 </header>
+
 <nav class="navbar navbar-default nav-border " style="margin-bottom:10px;">
             <div class="container">
+                
                 <div class="navbar-header">
-
+                        
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
                         <span class="sr-only">Toggle Navigation</span>
@@ -30,7 +35,6 @@ N<span class="smallcaps">a</span>B<span class="smallcaps">u</span>CC<span class=
                         
                     </a>
                 </div>
-
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
