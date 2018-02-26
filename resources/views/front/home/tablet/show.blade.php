@@ -58,20 +58,20 @@
                    
            @foreach($tablet->authors() as $author)
 
-           test
            <tr>
                <th>{{$author->id}}</th>
               
            </tr>
-           @endforeach
-                    
-                    
-           {{$tablet->test()}}  
-						
-                            
-        
-        
-           
+	   @endforeach
+	   <h3>Authors</h3>
+	   @foreach( $tablet->test() as $authors)
+	   
+	   {{$authors->name}}
+	   <br>
+			      
+		
+	@endforeach
+			    
         
 		</div>
 
