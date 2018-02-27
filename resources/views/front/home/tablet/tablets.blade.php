@@ -5,7 +5,7 @@
 		<div class="col-sm-1">
 		</div>
 		<div class="col-sm-10 well menu-item posts">
-			<h2> Tablets </h2>
+			<h2 class="media-heading"> Tablets </h2>
 			<table class="table  table-sm">
                 <thead>
                     <tr>

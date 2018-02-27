@@ -46,6 +46,9 @@ N<span class="smallcaps">a</span>B<span class="smallcaps">u</span>CC<span class=
     <li>
         <a href="{{ url('/tablets') }}">TABLETS</a>
     </li>
+    <li>
+            <a href="{{ url('/bibliographies') }}">BIBLIOGRAPHIES</a>
+        </li>
 		
 			
 		

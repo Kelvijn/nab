@@ -5,7 +5,7 @@
 		<div class="col-sm-1">
 		</div>
 		<div class="col-sm-10 well menu-item posts">
-			<h2>Tablet {{$tablet->museum_no}} </h2>
+			<h2 class="media-heading">Tablet {{$tablet->museum_no}} </h2>
             
             <h3>Id</h3>
             <p> {{$tablet->id}}</p>

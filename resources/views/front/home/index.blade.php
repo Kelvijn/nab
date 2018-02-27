@@ -31,25 +31,28 @@
 									
 				<ul class="nav nav-pills nav-stacked  ">
 					<li>
-						<a href="#section1">About the project</a>
+						<a href="{{ url('/about') }}">About the project</a>
 					</li>
 					<li>
-						<a href="#section2">Acronym</a>
+						<a href="{{ url('/acronym') }}">Acronym</a>
 					</li>
 					<li>
-						<a href="#section3">Current coverage</a>
+						<a href="{{ url('/coverage') }}">Current coverage</a>
 					</li>
 					<li>
-						<a href="#section3">Help us</a>
+							<a href="{{ url('/funding') }}">Funding</a>
+						</li>
+					<li>
+						<a href="{{ url('/help') }}">Help us</a>
 					</li>
                                         <li>
-						<a href="#section3">How to cite</a>
+						<a href="{{ url('/cite') }}">How to cite</a>
 					</li>
                                         <li>
-						<a href="#section3">Layout</a>
+						<a href="{{ url('/layout') }}">Layout</a>
 					</li>
                                           <li>
-						<a href="#section3">Staff</a>
+						<a href="{{ url('/staff') }}">Staff</a>
 					</li>
 				</ul>
 				<br>
@@ -67,7 +70,7 @@
 							
 				<ul class="nav nav-pills nav-stacked">
 					<li>
-						<a href="#section1">The Priesthood of Uruk in Late First Millennium BCE Babylonia</a>
+						<a href="{{ url('/uruk') }}">The Priesthood of Uruk in Late First Millennium BCE Babylonia</a>
 					</li>
 					<li>
 						<a href="#section2">Cuneiform Texts Mentioning Israelites, Judeans, and Related Population Groups</a>
