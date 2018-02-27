@@ -50,7 +50,7 @@ Route::view('/uruk/uruk_archives_sin_leqe_uninni', '/front/home/related/uruk/uru
 Route::view('/uruk/uruk_staff', '/front/home/related/uruk/uruk_staff');
 
 
-
+//
 
 
 
