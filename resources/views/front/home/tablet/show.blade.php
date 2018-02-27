@@ -64,15 +64,393 @@
            </tr>
 	   @endforeach
 	   <h3>Authors</h3>
-	   @foreach( $tablet->test() as $authors)
-	   
-	   {{$authors->name}}
-	   <br>
-			      
+	   <table class="table  table-sm">
+			<thead>
+			    <tr>
+				<th>Name</th>
+			    </tr>
+			</thead>
+			<tbody>
+					@foreach( $tablet->authors() as $authors)
+					<tr>
+							
+					<td>
+					{{$authors->name}}
+					
+					</td>
+							   
+				</tr>
+								
+				     @endforeach
 		
-	@endforeach
-			    
-        
+			</tbody>
+		    </table>
+		    <h3>Paraphrases</h3>
+		   
+				       
+			 
+		    <table class="table  table-sm">
+				 <thead>
+				     <tr>
+					 <th>Name</th>
+					 <th>Body</th>
+					 
+					 
+				     </tr>
+				 </thead>
+				 <tbody>
+						<tr>
+								
+						@foreach( $tablet->paraphrases() as $paraphrase)
+						
+						<td>
+						{{$paraphrase->id}}
+						
+						
+						</td>	
+						<td>
+					{!!$paraphrase->body!!}
+								
+						</td>
+					</tr>
+								
+					 @endforeach
+		 
+				 </tbody>
+		 
+			     </table>
+	   
+			     <h3>Joins</h3>
+			     
+						 
+				   
+			      <table class="table  table-sm">
+					   <thead>
+					       <tr>
+						   <th>id</th>
+						   <th>Museum_no</th>
+						   
+						   
+					       </tr>
+					   </thead>
+					   <tbody>
+							  <tr>
+									  
+							  @foreach( $tablet->joins() as $join)
+							  
+							  <td>
+							  {{$join->tablets_id}}
+							  
+							  
+							  </td>	
+							  <td>
+						  {!!$join->museum_noo!!}
+									  
+							  </td>
+						  </tr>
+									  
+						   @endforeach
+			   
+					   </tbody>
+			   
+				       </table>
+				       <h3>Transliterations</h3>
+				       
+							   
+					     
+					<table class="table  table-sm">
+						     <thead>
+							 <tr>
+							     <th>id</th>
+							     <th>Museum_no</th>
+							     
+							     
+							 </tr>
+						     </thead>
+						     <tbody>
+								    <tr>
+										    
+								    @foreach( $tablet->transliterations() as $transliteration)
+								    
+								    <td>
+								    {{$transliteration->tablets_id}}
+								    
+								    
+								    </td>	
+								    <td>
+							    {!!$transliteration->body!!}
+										    
+								    </td>
+							    </tr>
+										    
+							     @endforeach
+				     
+						     </tbody>
+				     
+						 </table>
+						 <h3>Archives</h3>
+						 
+								     
+						       
+						  <table class="table  table-sm">
+							       <thead>
+								   <tr>
+								       <th>Region</th>
+								       <th>Specific region</th>
+								       
+								       
+								   </tr>
+							       </thead>
+							       <tbody>
+									      <tr>
+											      
+									      @foreach( $tablet->archives() as $archive)
+									      
+									      <td>
+									      {{$archive->region}}
+									      
+									      
+									      </td>	
+									      <td>
+								      {{$archive->specific_region}}
+											      
+									      </td>
+								      </tr>
+											      
+								       @endforeach
+					       
+							       </tbody>
+					       
+							   </table>
+							   <h3>proveniences</h3>
+							   
+									       
+								 
+							    <table class="table  table-sm">
+									 <thead>
+									     <tr>
+										 <th>Region</th>
+										 <th>City</th>
+										 
+										 
+									     </tr>
+									 </thead>
+									 <tbody>
+											<tr>
+													
+											@foreach( $tablet->proveniences() as $provenience)
+											
+											<td>
+											{{$provenience->region}}
+											
+											
+											</td>	
+											<td>
+										{{$provenience->city}}
+													
+											</td>
+										</tr>
+													
+										 @endforeach
+							 
+									 </tbody>
+							 
+								     </table>
+								     <h3>places</h3>
+								     
+											 
+									   
+								      <table class="table  table-sm">
+										   <thead>
+										       <tr>
+											   <th>Region</th>
+											   <th>City</th>
+											   
+											   
+										       </tr>
+										   </thead>
+										   <tbody>
+												  <tr>
+														  
+												  @foreach( $tablet->places() as $place)
+												  
+												  <td>
+												  {{$place->region}}
+												  
+												  
+												  </td>	
+												  <td>
+											  {{$place->city}}
+														  
+												  </td>
+											  </tr>
+														  
+											   @endforeach
+								   
+										   </tbody>
+								   
+									       </table>
+									       <h3>other_markings</h3>
+									       
+												   
+										     
+										<table class="table  table-sm">
+											     <thead>
+												 <tr>
+												     <th>Name</th>
+												     
+												     
+												     
+												 </tr>
+											     </thead>
+											     <tbody>
+													    <tr>
+															    
+													    @foreach( $tablet->other_markings() as $other_marking)
+													    
+													    <td>
+													    {{$other_marking->name}}
+													    
+													    
+													    </td>	
+													
+												    </tr>
+															    
+												     @endforeach
+									     
+											     </tbody>
+									     
+											 </table>
+											 <h3>philological_notes</h3>
+											 
+													     
+											       
+											  <table class="table  table-sm">
+												       <thead>
+													   <tr>
+													       <th>Name</th>
+													       
+													       
+													       
+													   </tr>
+												       </thead>
+												       <tbody>
+														      <tr>
+																      
+														      @foreach( $tablet->philological_notes() as $philological_note)
+														      
+														      <td>
+														      {{$philological_note->name}}
+														      
+														      
+														      </td>	
+														      
+													      </tr>
+																      
+													       @endforeach
+										       
+												       </tbody>
+										       
+												   </table>	
+												   <h3>text_types</h3>
+												   
+														       
+													 
+												    <table class="table  table-sm">
+														 <thead>
+														     <tr>
+															 <th>Category</th>
+															 
+															 <th>Name</th>
+															 
+															 
+														     </tr>
+														 </thead>
+														 <tbody>
+																<tr>
+																		
+																@foreach( $tablet->text_types() as $text_type)
+																<td>
+																		{{$text_type->category}}
+																		
+																		
+																		</td>
+																<td>
+																{{$text_type->name}}
+																
+																
+																</td>	
+																
+																
+															</tr>
+																		
+															 @endforeach
+												 
+														 </tbody>
+												 
+													     </table>	
+													     <h3>akkadian_keywords</h3>
+													     
+																 
+														   
+													      <table class="table  table-sm">
+															   <thead>
+															       <tr>
+																   <th>Name</th>
+																   
+																   
+																   
+															       </tr>
+															   </thead>
+															   <tbody>
+																	  <tr>
+																			  
+																	  @foreach( $tablet->akkadian_keywords() as $akkadian_keyword)
+																	  
+																	  <td>
+																	  {{$akkadian_keyword->name}}
+																	  
+																	  
+																	  </td>	
+																	  
+																  </tr>
+																			  
+																   @endforeach
+													   
+															   </tbody>
+													   
+														       </table>	
+														       <h3>general_keywords</h3>
+														       
+																	   
+															     
+															<table class="table  table-sm">
+																     <thead>
+																	 <tr>
+																	     <th>Name</th>
+																	     
+																	     
+																	     
+																	 </tr>
+																     </thead>
+																     <tbody>
+																		    <tr>
+																				    
+																		    @foreach( $tablet->general_keywords() as $general_keyword)
+																		    
+																		    <td>
+																		    {{$general_keyword->name}}
+																		    
+																		    
+																		    </td>	
+																		    
+																	    </tr>
+																				    
+																	     @endforeach
+														     
+																     </tbody>
+														     
+																 </table>							       
 		</div>
 
 		
